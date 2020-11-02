@@ -1,21 +1,34 @@
 # Project organization
-This project has three layers: application, domain and infrastructure. Each
-layer has a role in the software.
+This project follows the guidelines outlines in [Domain Driven Design][1]. The
+source code is split into three main directories: application, domain and
+infrastructure. Each directory represents a layer of abstraction.
 
 ## Application layer
-The application layer is the top-most layer. It contains configurations and the
-entry-point into th. This layer
-is the thinnest of the three.
+The Application layer is the entry-point into the app. It is the least reuseable
+layer of the three and therefore it ought to be thin and simple. Make sure your
+code is the minimum required to get your configured and running.
 
 ## Domain layer
-This is the bulk of the software and thus the largest of the three layers. The
-domain is made up of the following constructs
+The bulk of the software lives here. This is where your business logic will
+live. The domain is typically made up of the following constructs:
 
 * Models
 * Repositories
 * Services
 * Validators
 
+Most of your time will be spent here.
+
 ## Infrastructure layer
-Networking, database connections and software configurations go here. Typically,
-infrastructure code is only written once and maintained infrequently.
+This is the place for fundamental system code. This includes networking,
+database connection, email service configuration and so on. You'll probably
+write code here just once.
+
+This layer must be devoid of all business-logic otherwise it just becomes
+another Domain layer. As such, this layer will also be thin, but not as thin as
+the Application layer.
+
+And, because it's the bottom layer, it's also the most reuseable and therefore
+you'll probably factor out this entire directory into its own Node package.
+
+[1]: https://martinfowler.com/tags/domain%20driven%20design.html
