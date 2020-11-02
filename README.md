@@ -1,3 +1,13 @@
+# Node API Service Skeleton
+I assume you use VS Code as your primary editor.
+
+# Scripts
+The supported npm scripts are:
+* `build` compiles TypeScript
+* `clean` removes the directories `./dist` and `./logs`.
+* `test` runs Jest
+* `lint` runs ESLint
+
 # Project organization
 This project follows the guidelines outlines in [Domain Driven Design][1]. The
 source code is split into three main directories: application, domain and
